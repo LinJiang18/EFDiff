@@ -33,9 +33,9 @@ python main.py --name <dataset> --config_file Config/<dataset>.yaml --gpu 0 --sa
 
 ### Example
 ```bash
-# Training with energy dataset
-python main.py --name energy --config_file Config/energy.yaml --gpu 0 --topk 5 --train
+# Training with stock dataset
+python main.py --name stock --config_file Config/stock.yaml --gpu 0 --topk 5 --train
 
-# Sampling with energy dataset
-python main.py --name energy --config_file Config/energy.yaml --gpu 0 --sample 0 --topk 5 --milestone 10
+# Sampling with stock dataset
+python main.py --name stock --config_file Config/stock.yaml --gpu 0 --sample 0 --topk 5 --milestone 10
 ```
