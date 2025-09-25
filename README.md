@@ -6,17 +6,16 @@ This repository contains the implementation for the paper:
 
 ---
 
-## 1. Clone the Repository
+## 1. Create your virtual environment
 ```bash
-conda create --name EFDiff python=3.9
-git clone https://github.com/your-org/EFDiff.git
-cd EFDiff
+conda create -n EFDiff python=3.9
+cd /path/to/EFDiff
 ```
 
 ## 2. Install Dependencies
 ```bash
 conda activate EFDiff
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 ## 3. Run the Main Pipeline
