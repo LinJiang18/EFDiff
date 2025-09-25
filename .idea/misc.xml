@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="Remote Python 3.9.21 Diffusion-TS" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.9.21 (sftp://ec2-user@54.174.17.82:22/home/ec2-user/.virtualenvs/Diffusion-TS/bin/python)" project-jdk-type="Python SDK" />
+</project>

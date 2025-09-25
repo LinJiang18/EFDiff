@@ -1,0 +1,101 @@
+model:
+  target: Models.interpretable_diffusion.gaussian_diffusion.Diffusion_TS
+  params:
+    seq_length: 24
+    feature_size: 1
+    n_layer_enc: 2
+    n_layer_dec: 2
+    d_model: 64
+    timesteps: 500
+    sampling_timesteps: 500
+    loss_type: 'l1'
+    beta_schedule: 'cosine'
+    n_heads: 4
+    mlp_hidden_times: 4
+    attn_pd: 0.0
+    resid_pd: 0.0
+    kernel_size: 1
+    padding_size: 0
+
+solver:
+  base_lr: 1.0e-5
+  max_epochs: 10000
+  results_folder: ./Checkpoints_stock
+  gradient_accumulate_every: 2
+  save_cycle: 1000
+  ema:
+    decay: 0.995
+    update_interval: 10
+  scheduler:
+    target: engine.lr_sch.ReduceLROnPlateauWithWarmup
+    params:
+      factor: 0.5
+      patience: 2000
+      min_lr: 1.0e-5
+      threshold: 1.0e-1
+      threshold_mode: rel
+      warmup_lr: 8.0e-4
+      warmup: 500
+      verbose: False
+
+dataloader:
+  train_dataset:
+    target: Utils.Data_utils.real_datasets.CustomDataset
+    params:
+      name: stock
+      proportion: 1.0
+      data_root: ./Data/stock.csv
+      window: 24
+      save2npy: True
+      neg_one_to_one: True
+      seed: 123
+      period: train
+
+  test_dataset:
+    target: Utils.Data_utils.real_datasets.CustomDataset
+    params:
+      name: stock
+      proportion: 0.9
+      data_root: ./Data/stock.csv
+      window: 24
+      save2npy: True
+      neg_one_to_one: True
+      seed: 123
+      period: test
+      style: separate
+      distribution: geometric
+    coefficient: 1.0e-2
+    step_size: 5.0e-2
+    sampling_steps: 200
+
+
+  batch_size: 64
+  sample_size: 256
+  shuffle: True
+
+extreme_train:
+  L: 24
+  T: 1000
+  batch_size: 64
+  epochs: 20
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+  delta: 2
+  topk_margin: 0.4
+  lambda_topk: 2.0e-3
+  pos_weight: 1.6
+  late_bias_gamma: 5.0
+  device: cuda
+  seed: 42
+  d_model: 128
+  beta_start: 1.0e-4
+  beta_end: 2.0e-2
+
+  extreme_extract:
+    p: 0.10
+    alpha_mean: 0.05
+    k_sigma: 1.5
+    k_mad: 2.5
+    rho_near: 0.02
+    rho_dil: 0.02
+    trend: linear
