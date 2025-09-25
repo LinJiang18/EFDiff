@@ -2,7 +2,7 @@
 
 This repository contains the implementation for the paper:  
 **EFDiff: Frequency-Informed Diffusion for Extreme-Value Time Series Generation**  
-(submitted to ICLR).
+(submitted to ICLR26).
 
 ---
 
