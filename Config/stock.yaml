@@ -1,5 +1,5 @@
 model:
-  target: Models.interpretable_diffusion.gaussian_diffusion.Diffusion_TS
+  target: Models.interpretable_diffusion.gaussian_diffusion.EFDiff
   params:
     seq_length: 24
     feature_size: 1

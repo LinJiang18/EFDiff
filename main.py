@@ -92,7 +92,7 @@ def main():
     results_folder.mkdir(parents=True, exist_ok=True)
     ext_model_path = results_folder / "extreme_model.pth"
     ext_trainer.save(str(ext_model_path))
-    print("ExtremeTrain finished. Report:", report)
+    print("Extreme Component finished.")
 
     model.set_ext_trainer(ext_trainer)
     trainer = Trainer(config=config, args=args, model=model, dataloader=dataloader_info, logger=logger,ext_trainer=ext_trainer)

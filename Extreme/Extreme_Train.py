@@ -240,7 +240,7 @@ class ExtremeTrain:
                 with torch.no_grad():
                     val = run_epoch(val_loader, False); history["val"].append(val)
                 msg += f" || val: loss={val['loss']:.4f} | bce={val['bce']:.4f} | topk={val['topk']:.4f} | Cov@{cfg.topk}={val['cov']:.3f}"
-            print(msg)
+            # print(msg)
         return {"history": history}
 
     @torch.no_grad()
