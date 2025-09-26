@@ -1,0 +1,44 @@
+==> torch version: 2.0.1+cu117
+==> cudnn version: 8500
+==> Cmd:
+['main.py', '--name', 'stock', '--config_file', 'Config/stock.yaml', '--gpu', '0', '--topk', '5', '--train']
+==> args:
+  config_file: Config/stock.yaml
+  cudnn_deterministic: False
+  gpu: 0
+  milestone: 10
+  missing_ratio: 0.0
+  mode: infill
+  name: stock
+  opts: []
+  output: OUTPUT
+  pred_len: 0
+  pred_step: 100
+  sample: 0
+  save_dir: OUTPUT/stock(5)
+  seed: 12345
+  tensorboard: False
+  topk: 5
+  train: True
+==> torch version: 2.0.1+cu117
+==> cudnn version: 8500
+==> Cmd:
+['main.py', '--name', 'stock', '--config_file', 'Config/stock.yaml', '--gpu', '0', '--sample', '0', '--topk', '5', '--milestone', '10']
+==> args:
+  config_file: Config/stock.yaml
+  cudnn_deterministic: False
+  gpu: 0
+  milestone: 10
+  missing_ratio: 0.0
+  mode: infill
+  name: stock
+  opts: []
+  output: OUTPUT
+  pred_len: 0
+  pred_step: 100
+  sample: 0
+  save_dir: OUTPUT/stock(5)
+  seed: 12345
+  tensorboard: False
+  topk: 5
+  train: False

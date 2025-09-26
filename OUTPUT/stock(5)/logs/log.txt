@@ -1,0 +1,6 @@
+2025-09-26-02-49: {'overall': {'trainable': '282.78K', 'non_trainable': '0', 'total': '282.78K'}, 'model': {'trainable': '282.78K', 'non_trainable': '0', 'total': '282.78K'}}
+2025-09-26-02-49: stock: start training...
+2025-09-26-02-57: Training done, time: 489.38
+2025-09-26-02-59: {'overall': {'trainable': '282.78K', 'non_trainable': '0', 'total': '282.78K'}, 'model': {'trainable': '282.78K', 'non_trainable': '0', 'total': '282.78K'}}
+2025-09-26-02-59: Begin to sample...
+2025-09-26-03-00: Sampling done, time: 58.41

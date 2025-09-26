@@ -1,0 +1,95 @@
+dataloader:
+  batch_size: 64
+  sample_size: 256
+  shuffle: true
+  test_dataset:
+    coefficient: 0.01
+    params:
+      data_root: ./Data/stock.csv
+      distribution: geometric
+      name: stock
+      neg_one_to_one: true
+      period: test
+      proportion: 0.9
+      save2npy: true
+      seed: 123
+      style: separate
+      window: 24
+    sampling_steps: 200
+    step_size: 0.05
+    target: Utils.Data_utils.real_datasets.CustomDataset
+  train_dataset:
+    params:
+      data_root: ./Data/stock.csv
+      name: stock
+      neg_one_to_one: true
+      period: train
+      proportion: 1.0
+      save2npy: true
+      seed: 123
+      window: 24
+    target: Utils.Data_utils.real_datasets.CustomDataset
+extreme_train:
+  L: 24
+  T: 1000
+  batch_size: 64
+  beta_end: 0.02
+  beta_start: 0.0001
+  d_model: 128
+  delta: 2
+  device: cuda
+  epochs: 20
+  extreme_extract:
+    alpha_mean: 0.05
+    k_mad: 2.5
+    k_sigma: 1.5
+    p: 0.1
+    rho_dil: 0.02
+    rho_near: 0.02
+    trend: linear
+  lambda_topk: 0.002
+  late_bias_gamma: 5.0
+  lr: 0.0003
+  pos_weight: 1.6
+  seed: 42
+  topk_margin: 0.4
+  weight_decay: 0.0001
+model:
+  params:
+    attn_pd: 0.0
+    beta_schedule: cosine
+    d_model: 64
+    feature_size: 1
+    kernel_size: 1
+    loss_type: l1
+    mlp_hidden_times: 4
+    n_heads: 4
+    n_layer_dec: 2
+    n_layer_enc: 2
+    padding_size: 0
+    resid_pd: 0.0
+    sampling_timesteps: 500
+    seq_length: 24
+    timesteps: 500
+    top_k_frequency: 5
+  target: Models.interpretable_diffusion.gaussian_diffusion.EFDiff
+solver:
+  base_lr: 1.0e-05
+  ema:
+    decay: 0.995
+    update_interval: 10
+  gradient_accumulate_every: 2
+  max_epochs: 10000
+  results_folder: ./Checkpoints_stock
+  save_cycle: 1000
+  scheduler:
+    params:
+      factor: 0.5
+      min_lr: 1.0e-05
+      patience: 2000
+      threshold: 0.1
+      threshold_mode: rel
+      verbose: false
+      warmup: 500
+      warmup_lr: 0.0008
+    target: engine.lr_sch.ReduceLROnPlateauWithWarmup
