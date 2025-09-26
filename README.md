@@ -40,4 +40,7 @@ python main.py --name stock --config_file Config/stock.yaml --gpu 0 --sample 0 -
 ```
 
 ## 4. Evaluation
-All strategy algorithms are included in **Evaluation.ipynb**, and you can obtain the corresponding results simply by running it directly.
+All evaluation algorithms are included in **Evaluation.ipynb**, and you can obtain the corresponding results simply by running it directly.
+
+> **Note:** For your convenience, the checkpoints and results for the stock dataset have already been prepared in advance.
+
