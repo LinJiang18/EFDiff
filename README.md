@@ -38,3 +38,6 @@ python main.py --name stock --config_file Config/stock.yaml --gpu 0 --topk 5 --t
 # Sampling with stock dataset
 python main.py --name stock --config_file Config/stock.yaml --gpu 0 --sample 0 --topk 5 --milestone 10
 ```
+
+### Evaluation
+All strategy algorithms are included in Evaluation.ipynb, and you can obtain the corresponding results simply by running it directly.
